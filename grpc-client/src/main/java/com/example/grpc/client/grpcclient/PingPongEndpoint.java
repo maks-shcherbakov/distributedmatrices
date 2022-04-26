@@ -19,7 +19,6 @@ import java.io.IOException;
 
 @RestController
 public class PingPongEndpoint {    
-
 	GRPCClientService grpcClientService;    
 	@Autowired
     	public PingPongEndpoint(GRPCClientService grpcClientService) {
@@ -29,8 +28,6 @@ public class PingPongEndpoint {
     	public String ping() {
         	return grpcClientService.ping();
     	}
-
-
 	@PostMapping("/upload")
 		public FileUploadResponse fileUpload(@RequestParam("file") MultipartFile file,@RequestParam("deadline") int deadline) throws IllegalStateException, IOException{
 			return grpcClientService.fileUpload(file, deadline);
